@@ -1,0 +1,27 @@
+[package]
+name = "scream"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 3     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = "abort"     # Abort on panic
+strip = true        # Automatically strip symbols from the binary.
+
+[dependencies]
+sysinfo = "0.28"
+ntapi = { version = "0.4", features = ["impl-default"] }
+winapi = { version = "0.3", features = ["ntdef", "ntstatus", "impl-default"] }
+num-traits = "0.2.16"
+cfb-mode = "0.8.2"
+aes = "0.8.3"
+hex-literal = "0.4.1"
+obfstr = "0.4.3"
+spam_asm = { path = "./pengine" }
+cbc = "0.1.2"
+goldberg = "0.1.0"
+rand = "0.8.5"
+lazy_static = "1.4.0"
+wchar = "0.11.0"

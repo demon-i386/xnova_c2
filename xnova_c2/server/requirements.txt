@@ -1,0 +1,11 @@
+rich
+pyjwt
+colorama
+cryptography
+websockets
+toml
+mnemonic
+pyotp
+flask
+uuid
+pycryptodome

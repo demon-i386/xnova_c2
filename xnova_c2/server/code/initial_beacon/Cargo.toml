@@ -1,0 +1,22 @@
+[package]
+name = "initial_beacon"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+opt-level = 3     # Optimize for size.
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Reduce number of codegen units to increase optimizations.
+panic = "abort"     # Abort on panic
+strip = true        # Automatically strip symbols from the binary.
+
+[dependencies]
+libc = { version = "0.2.155", features = ["extra_traits"] }
+minreq = { version = "2.11.2", features = ["https-rustls-probe"] }
+winapi = { version = "0.3.9", features = ["memoryapi"] }
+aes = "0.8.3"
+cfb-mode = "0.8.2"
+cbc = { version = "0.1.2", features = ["alloc"] }
+lazy_static = "1.5.0"
+rand = "0.8.5"
+base64 = "0.21.0"
