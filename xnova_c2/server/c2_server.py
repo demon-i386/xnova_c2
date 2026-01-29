@@ -585,7 +585,7 @@ def refresh_modules():
     global module_names
     print("[OK] module refresh thread")
     while True:
-        time.sleep(20)
+        # time.sleep(20)
         module_path = BASE_DIR + "/code/modules"
         module_folders = [name for name in os.listdir(module_path) if os.path.isdir(os.path.join(module_path, name))]
 
