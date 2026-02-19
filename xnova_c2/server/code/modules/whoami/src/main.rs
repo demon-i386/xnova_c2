@@ -107,8 +107,9 @@ pub fn main(arg1: *mut c_void) {
     // println!("{:?} - ", arg1);
     // START - Indirect Syscall structure creation (received from main thread)
 
-    let address_cafebabe: *const u32 = 0xBAADF000 as *const u32;
-    let address = 0xBAADF000 as *mut u8;
+    let mut ipc_value: u32 = 0;
+    let address_cafebabe: *const u32 = &ipc_value as *const u32;
+    let address = &mut ipc_value as *mut u8;
     let value: u32 = 5;
     let bytes = value.to_le_bytes(); 
     unsafe {
