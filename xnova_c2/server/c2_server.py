@@ -240,9 +240,10 @@ def validate_auth(websocket, token):
 
                     except jwt.ExpiredSignatureError:
                         print(" expired signrature.")
-                        if websocket in CONNECTED_CLIENTS:
+if websocket in CONNECTED_CLIENTS:
                             CONNECTED_CLIENTS.remove(websocket)
                         asyncio.create_task(websocket_close(websocket))
+                        return 1
 
                     
         else:
